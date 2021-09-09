@@ -18,3 +18,7 @@ npm run build
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+####Routes will be  automatic from folder structure
+#Index.vue will be default route
+#ChildrenList.js for children routes
+

@@ -1,23 +1,29 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/About.vue')
+function getRoutes() {
+  let routes =[];  
+  routes.push({ path: '/', component: () => import('@/tasks/Dashboard.vue')});
+  routes.push({ path: '/login', component: () => import('@/tasks/Login.vue')});
+
+  //let vueIndexFiles = require.context('@/tasks/',true,/\/Index\.vue$/);
+  let vueIndexFiles = require.context('@/tasks/',true,/\/Index\.vue$/).keys();
+  for(let i=0;i<vueIndexFiles.length;i++) {
+    let indexFile=vueIndexFiles[i];
+    let path=indexFile.substr(1,indexFile.length-11);  
+    let children=[];
+    try{      
+      let data=require(`@/tasks${path}/ChildrenList.js`);      
+      children=data.default;
     }
+    catch (error) {  
+      //console.log(error);    
+    }
+    routes.push({ path: path, component: () => import('@/tasks'+path+'/Index.vue'), children: children});          
   }
-]
+  routes.push({ path: '/:catchAll()', component: () => import('@/components/busy-states/404.vue')});
+  return routes;
+}
+let routes =getRoutes();
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
