@@ -1,5 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import systemFunctions from '@/assets/SystemFunctions';
 
-createApp(App).use(router).mount('#system-app')
+const app = createApp(App);
+app.config.globalProperties.$systemFunctions = systemFunctions;
+app.use(router);
+app.mount('#system-app');
+
+
+
