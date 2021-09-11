@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">    
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Asset Management</title>
+    <link rel="shortcut icon" href="<%= BASE_URL %>favicon.ico" type="image/x-icon"> 
+
+    <!--CSS -->
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>theme/css/bootstrap.min.css">  
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>theme/css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>theme/css/icons_feather.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>theme/css/palette-gradient.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>theme/bootstrap-icons/bootstrap-icons.css">
+
+    <link href="<%= BASE_URL %>theme/css/style.css" rel="stylesheet" type="text/css">
+    
+    
+    
+
+
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+
+    <script type="text/javascript" src="<%= BASE_URL %>theme/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="<%= BASE_URL %>theme/js/popper.min.js"></script>
+    <script type="text/javascript" src="<%= BASE_URL %>theme/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%= BASE_URL %>theme/js/global.js"></script>
+
     <div id="system-app"></div>
     <!-- built files will be auto injected -->
   </body>
