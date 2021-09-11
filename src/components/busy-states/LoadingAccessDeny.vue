@@ -2,7 +2,7 @@
     <div class="card px-4 py-4">
         <div class="row d-flex align-items-center justify-content-center mb-1">
             <div class="col-8 text-center">
-                <img :src="$systemVariables.baseUrl+'theme/images/deny.png'" alt="">
+                <img :src="$systemFunctions.baseUrl+'theme/images/deny.png'" alt="">
             </div>
         </div>
         <div class="row d-flex align-items-center justify-content-center mb-2">

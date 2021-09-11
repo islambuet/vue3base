@@ -3,11 +3,12 @@
     <Loading v-show="$systemFunctions.statusDataLoaded == 0" />
     <Loading v-if="statusSiteLoaded == 0" />
     <LoadingFailed v-else-if="statusSiteLoaded == -1" />
+    <ThemeSingle v-else-if="statusSiteLoaded == 1 && !($systemFunctions.user.id > 0)" />
   </div>
 </template>
 <script>
 //import ThemeDefault from "./components/themes/ThemeDefault.vue";
-//import ThemeSingle from "./components/themes/ThemeSingle.vue";
+import ThemeSingle from "@/components/themes/ThemeSingle.vue";
 import Loading from "@/components/busy-states/Loading.vue";
 import LoadingFailed from "@/components/busy-states/LoadingFailed.vue";
 
@@ -16,7 +17,7 @@ export default {
     Loading,
     LoadingFailed,
     // ThemeDefault,
-    // ThemeSingle,
+    ThemeSingle,
   },
   data() {
     return {
@@ -31,6 +32,7 @@ export default {
     init()
     {
       this.statusSiteLoaded =1;
+      //this.$systemFunctions.statusTaskLoaded=-3;
     }
   }
 }

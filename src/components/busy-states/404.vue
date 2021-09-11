@@ -6,7 +6,7 @@
             <router-link to="/" :class="'btn btn-lg btn-outline-primary mt-3'">Go {{$systemFunctions.getLabel('label_dashboard')}}
           </router-link>
         </div>
-        <img class="img-error" :src="$systemVariables.baseUrl+'theme/images/error-404.png'" alt="Not Found" style="width:100%">
+        <img class="img-error" :src="$systemFunctions.baseUrl+'theme/images/error-404.png'" alt="Not Found" style="width:100%">
     </div>
 </template>
 
